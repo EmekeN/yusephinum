@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkyusephinum=self.webpackChunkyusephinum||[]).push([[678],{6558:function(e,t,n){n.r(t);var u=n(7294);t.default=function(){return u.createElement("div",{className:"Home"},u.createElement("title",null,"Home Page"),u.createElement("h1",null,"Welcome to the Yusephinim Project"))}}}]);
