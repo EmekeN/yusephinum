@@ -5,7 +5,7 @@ const IndexPage = () => {
   return (
     <div className="Home">
       <title>Home Page</title>
-      <h1>Welcome to the Yusephinim Project</h1>
+      <h1>Welcome to the Yusephinum Project</h1>
     </div>
   );
 };
