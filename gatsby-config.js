@@ -6,11 +6,27 @@ module.exports = {
       "An episodic worldbuilding experience told through interdisciplinary installations that explore the complexity of existence and finding a place to call home.",
   },
   polyfill: false,
+
   plugins: [
     "gatsby-plugin-netlify-cms",
     "gatsby-plugin-sass",
+    // {
+    //   resolve: "gatsby-plugin-google-analytics",
+    //   options: {
+    //     trackingId: "",
+    //   },
+    // },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
+    // {
+    //   resolve: `gatsby-plugin-google-tagmanager`,
+    //   options: {
+    //     id: "GTM-KMFD2NQ",
+    //     includeInDevelopment: false,
+    //     enableWebVitalsTracking: true,
+    //     defaultDataLayer: {},
+    //   },
+    // },
     `gatsby-plugin-minify`,
     `gatsby-plugin-react-helmet`,
     {
@@ -23,12 +39,18 @@ module.exports = {
       },
     },
     `gatsby-plugin-compression-v2`,
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve("./src/components/Common"),
+      },
+    },
     `gatsby-plugin-sass`,
     {
       resolve: "gatsby-plugin-sitemap",
-      // options: {
-      //   excludes: [],
-      // },
+      options: {
+        excludes: [],
+      },
     },
   ],
 };
