@@ -10,37 +10,35 @@ import React, { useRef } from "react";
 const IndexPage = () => {
   const storyRef = useRef();
   const compass = useRef();
+  const eventLink = "https://www.eventbrite.com/e/yusephinum-launch-tickets-345876494907";
 
   useEffectOnlyOnce(() => {
     gsap.registerPlugin(TextPlugin);
     const storyText = [
       "The Yusephinum is the cradle of existence.",
-      " It houses within its seemingly infinite expanse the seven dimensions, known as the Seven Spheres.",
-      "The Yusephinum Project is a multimedia installation project that tells the origin story of a protagonist named Nym, who finds himself within a strange new dimension.",
+      " It houses within its seemingly infinite expanse the Seven Spheres.",
+      "Welcome to a strange new dimension.",
     ];
     const storyTimeline = gsap.timeline({ defaults: { ease: "power1" } });
     const nameStartState = {
-      opacity: 0.85,
+      opacity: 0.15,
       backgroundColor: "var(--dumpling-clr)",
     };
     const nameEndState = {
       x: "0",
       opacity: 1,
-      duration: 2,
+      duration: 4,
       delay: 2,
     };
     let textConfig = {
       delimiter: "",
-      // preserveSpaces: true,
-      speed: 4,
-      // padSpace: false,
-      // type: "diff",
+      speed: 0.5,
     };
 
     //prettier-ignore
-    storyTimeline.fromTo([storyRef.current], { opacity: .02, x: "0", duration: 4 },{ ...nameEndState, text: { value: storyText[0]}})
-                .fromTo([storyRef.current], { ...nameStartState },{ ...nameEndState, text: { ...textConfig, value: storyText[1]}})
-                .fromTo([storyRef.current], { ...nameStartState },{ ...nameEndState, text: { ...textConfig, value: storyText[2]}})
+    storyTimeline.fromTo([storyRef.current], { ...nameStartState },{ ...nameEndState, text: { value: storyText[0]}})
+                .fromTo([storyRef.current], { ...nameStartState, text: "" },{ ...nameEndState, text: { ...textConfig, value: storyText[1]}})
+                .fromTo([storyRef.current], { ...nameStartState , text: ""},{ ...nameEndState, text: { ...textConfig, value: storyText[2]}})
   });
   return (
     <div className="Home">
@@ -51,7 +49,9 @@ const IndexPage = () => {
       <Header />
       <header className="Header">
         <section>
-          <img src={Logo} alt="Yusephinum" />
+          <a href="/">
+            <img src={Logo} alt="Yusephinum" />
+          </a>
         </section>
       </header>
       <section className="hero-story">
