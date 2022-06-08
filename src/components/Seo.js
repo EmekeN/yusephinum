@@ -1,15 +1,16 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-
+import FavIcon from "./../images/logos/yusephinum-compass-black.svg"
+import CompassLogo from "./../images/logos/yusephinum-compass-white-logo.svg"
 function Seo({ description, lang, meta, title, imageUrl, url }) {
   const metaDescription =
     description ||
-    "Start your own grocery delivery business. Browse personal shoppers near you to have your groceries delivered.";
-  const defaultTitle = "Dumpling";
+    "An episodic worldbuilding experience told through interdisciplinary installations that explore the complexity of existence and finding a place to call home.";
+  const defaultTitle = "Yusephinum";
   const image =
-    imageUrl || "https://ddrppvc0wiygy.cloudfront.net/images/content/shared/dumpling-social.png";
-  const author = "yusephinim.com";
-  const canonicalUrl = url || "https://dumpling.us";
+    imageUrl || CompassLogo;
+  const author = "yusephinum.com";
+  const canonicalUrl = url || "https://yusephinum.com";
 
   return (
     <Helmet
@@ -61,7 +62,7 @@ function Seo({ description, lang, meta, title, imageUrl, url }) {
         },
       ].concat(meta)}
     >
-      <link rel="icon" href="https://ddrppvc0wiygy.cloudfront.net/images/logos/fav-icon.png" />
+      <link rel="icon" href={FavIcon} />
 
       <meta name="title" content={`${title} - Dumpling`} />
       <meta property="og:title" content={`${title} - Dumpling`} />
