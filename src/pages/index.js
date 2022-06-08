@@ -21,8 +21,7 @@ const IndexPage = () => {
     ];
     const storyTimeline = gsap.timeline({ defaults: { ease: "power1" } });
     const nameStartState = {
-      opacity: 0.15,
-      backgroundColor: "var(--dumpling-clr)",
+      opacity: 0.25,
     };
     const nameEndState = {
       x: "0",
