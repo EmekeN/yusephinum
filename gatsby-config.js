@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     siteUrl: `https://www.yusephinum.com`,
-    title: "Yusephinim",
+    title: "Yusephinum",
     description:
       "An episodic worldbuilding experience told through interdisciplinary installations that explore the complexity of existence and finding a place to call home.",
   },
