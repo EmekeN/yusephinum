@@ -1,14 +1,13 @@
 import Logo from "./../../images/logos/yusephinum-logo.svg";
 import "./Header.scss";
+import { Link } from "gatsby";
 import React from "react";
 
 const Header = () => {
-  <header className="Header">
-    <section>
-      <a href="/">
-        <img src={Logo} alt="Yusephinum" />
-      </a>
-    </section>
-  </header>;
+  <section className="Header">
+    <Link to="/">
+      <img src={Logo} alt="Yusephinum" />
+    </Link>
+  </section>;
 };
 export default Header;

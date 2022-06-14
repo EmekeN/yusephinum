@@ -1,0 +1,21 @@
+.Story {
+  background: linear-gradient(0deg, rgba(0, 36, 17, 0.72), rgba(0, 36, 17, 0.52)),
+    url("./../images/home/home-bg.jpg");
+  background-attachment: scroll;
+  background-position: top right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  min-height: 100vh;
+  .intro {
+    padding: 1rem 4rem;
+    display: grid;
+    row-gap: 2em;
+  }
+  .story-text {
+    max-width: 55ch;
+    margin: auto;
+    font-size: 2em;
+    color: var(--neutral-clr-04);
+  }
+}

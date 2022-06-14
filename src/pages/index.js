@@ -1,11 +1,9 @@
-import Header from "../components/Header/Header";
 import { useEffectOnlyOnce } from "../hooks/useEffectOnlyOnce";
 import Seo from "./../components/Seo";
 import CompassLogo from "./../images/logos/yusephinum-compass-white-logo.svg";
-import Logo from "./../images/logos/yusephinum-logo.svg";
 import "./../styles/index.scss";
+import { Link } from "gatsby";
 import gsap from "gsap";
-import { TextPlugin } from "gsap/TextPlugin";
 import React, { useRef } from "react";
 
 const IndexPage = () => {
@@ -13,7 +11,7 @@ const IndexPage = () => {
   const compassRef = useRef();
   const ticketRef = useRef();
   const aboutRef = useRef();
-  const galleryRef = useRef();
+  // const galleryRef = useRef();
   const loreRef = useRef();
   const storyLinkRef = useRef();
   const eventLink = "https://www.eventbrite.com/e/yusephinum-launch-tickets-345876494907";
@@ -49,28 +47,10 @@ const IndexPage = () => {
 
     //prettier-ignore
     storyTimeline
-                // .fromTo([storyRef.current], { ...nameStartState },{ ...nameEndState, text: { value: storyText[0]}})
-                // .fromTo([storyRef.current], { ...nameStartState, text: "" },{ ...nameEndState, text: { ...textConfig, value: storyText[1]}})
-                .fromTo([storyRef.current], { ...nameStartState , delay: 0},{ ...nameEndState,})
-                .to([storyRef.current], {y: "100", duration: 1, ease: "power1"})
-                .to([storyRef.current], {opacity: 0, duration: .5, y: "-100%"})
-                .to([compassRef.current], {opacity: 1, rotate: 360, duration: 1.5, ease: "power4"})
-                .to([ticketRef.current, aboutRef.current, galleryRef.current, loreRef.current, storyLinkRef.current], {opacity: 1, stagger: .25, duration: .25})
-    // .to([storyRef.current], {y: "100", opacity: 0, duration: 1})
-    /**
-     * Enter compass glyph on y axis & fade in
-     * add logo w/ compass or add after?
-     * points on the compass arrive
-     */
-    // .fromTo([compassRef.current],)
-
-    /**
-     * What is the effect on text?
-     * Find ideas
-     * transition color?
-     * expand size?
-     * on hover something happens
-     */
+                .fromTo([storyRef.current],{y: "-100%", opacity: 0}, {y: "0", duration: 2, opacity:1, ease: "power1"})
+                .to([storyRef.current], {opacity: 0, duration: .5, })
+                .fromTo([compassRef.current], {x: "5%"}, {x: 0, opacity: 1, rotate: 360, duration: 3, ease: "expo.out"})
+                .to([ticketRef.current, aboutRef.current, loreRef.current, storyLinkRef.current], {opacity: 1, stagger: .5, duration: .5})
   });
   return (
     <div className="Home">
@@ -78,35 +58,23 @@ const IndexPage = () => {
         title={"Welcome to Yusephinum"}
         description="An episodic worldbuilding experience told through interdisciplinary installations that explore the complexity of existence and finding a place to call home."
       />
-      {/* <Header />
-      <header className="Header">
-        <section>
-          <a href="/">
-            <img src={Logo} alt="Yusephinum" />
-          </a>
-        </section>
-      </header> */}
       <section className="hero-story">
         <h1 ref={storyRef}>Welcome to a strange new dimension.</h1>
         <div className="link-ctn">
           <div ref={aboutRef} className="planet-link about">
-            <a href="">About</a>
-          </div>
-          <div ref={galleryRef} className="planet-link gallery">
-            <a href="">Gallery</a>
+            <Link to="/about">About</Link>
           </div>
           <div ref={ticketRef} className="planet-link tickets">
             <a href="https://www.eventbrite.com/e/yusephinum-launch-tickets-345876494907">
               Tickets
             </a>
           </div>
-          <div ref={storyLinkRef} className="planet-link projects">
-            <a href="">Projects</a>
+          <div ref={storyLinkRef} className="planet-link story">
+            <Link to="/story">Story</Link>
           </div>
           <div ref={loreRef} className="planet-link lore">
-            <a href="">Lore</a>
+            <Link to="/lore">Lore</Link>
           </div>
-          {/* <div ref={planetRef} className="planet-link"><a href=""></a></div> */}
         </div>
         <img src={CompassLogo} ref={compassRef} alt="Yusephinum" className="center-logo" />
       </section>

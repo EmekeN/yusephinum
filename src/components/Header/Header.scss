@@ -2,8 +2,13 @@
   padding: 0.75rem 1rem 0.5rem 1rem;
   background-color: var(--primary-clr);
   background-color: rgb(6, 5, 5);
+  display: flex;
+  z-index: 3;
+  align-items: center;
+  justify-content: center;
   img {
-    height: 1rem;
+    // margin: auto;
+    height: 1.25rem;
     width: auto;
   }
 }

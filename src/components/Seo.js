@@ -8,7 +8,7 @@ function Seo({ description, lang, meta, title, imageUrl, url }) {
     description ||
     "An episodic worldbuilding experience told through interdisciplinary installations that explore the complexity of existence and finding a place to call home.";
   const defaultTitle = "Yusephinum";
-  const image = imageUrl || CompassLogo;
+  const image = imageUrl || "https://drive.google.com/uc?id=1QOR6TLN0Wh-MS5FFG9ElLzjPjW5hKRe-";
   const author = "yusephinum.com";
   const canonicalUrl = url || "https://yusephinum.com";
 

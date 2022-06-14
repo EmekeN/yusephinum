@@ -1,0 +1,27 @@
+.Lore {
+  background: linear-gradient(0deg, rgba(0, 36, 17, 0.72), rgba(0, 36, 17, 0.52)),
+    url("./../images/home/home-bg.jpg");
+  background-attachment: scroll;
+  background-position: top right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  min-height: 100vh;
+  .intro {
+    display: flex;
+    position: absolute;
+    inset: 25vw auto auto 25vw;
+    margin: auto;
+  }
+  .planet {
+    position: absolute;
+    inset: 25vw auto auto 25vw;
+    margin: auto;
+    width: 5rem;
+    height: 5rem;
+    background-image: url("./../images/polygrid.png");
+    background-size: 5rem;
+    background-position: center;
+    border-radius: 50%;
+  }
+}
