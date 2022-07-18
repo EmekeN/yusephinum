@@ -13,7 +13,7 @@
     "build": "npm run clean && gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "deploy": "npm build && sudo netlify deploy --dir=public",
+    "deploy": "npm run build && sudo netlify deploy --dir=public",
     "deploy:prod": "npm run build && sudo netlify deploy --dir=public --prod"
   },
   "dependencies": {
@@ -28,7 +28,7 @@
     "gatsby-plugin-react-helmet": "^5.15.0",
     "gatsby-plugin-sass": "^5.15.1",
     "gatsby-plugin-sitemap": "^5.15.1",
-    "gsap": "^3.9.1",
+    "gsap": "npm:@gsap/shockingly@^3.10.4",
     "netlify-cms-app": "^2.15.72",
     "npm-check-updates": "^13.1.5",
     "react": "^18.1.0",

@@ -7,15 +7,15 @@
   background-repeat: no-repeat;
   position: relative;
   min-height: 100vh;
-  .intro {
-    padding: 1rem 4rem;
+  .story-ctn {
+    padding: 4rem 1rem;
     display: grid;
-    row-gap: 2em;
+    row-gap: 1em;
   }
   .story-text {
     max-width: 55ch;
     margin: auto;
-    font-size: 2em;
+    font-size: 1.625rem;
     color: var(--neutral-clr-04);
   }
 }

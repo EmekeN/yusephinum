@@ -1,0 +1,8 @@
+.Gallery {
+  .light-boxes {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(5, minmax(auto-fill, 24rem));
+    grid-template-rows: minmax(1, minmax(auto-fill, 36rem));
+  }
+}

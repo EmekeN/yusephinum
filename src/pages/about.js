@@ -9,6 +9,13 @@ import { SplitText } from "gsap/all";
 import React, { useRef } from "react";
 
 const About = () => {
+  const founderImgRef = useRef();
+  const richardImgRef = useRef();
+  const ckImgRef = useRef();
+  const story1Ref = useRef();
+  const story2Ref = useRef();
+  const story3Ref = useRef();
+
   useEffectOnlyOnce(
     () => {
     // const storyTimeline = gsap.timeline({ defaults: { ease: "power1" } });
@@ -31,7 +38,11 @@ const About = () => {
         </section>
       </header>
       <section className="intro">
-        <img src={Founders} alt="Founders of Yusephinum" className="founders" />
+        <img
+          src="https://drive.google.com/uc?id=1U1D616qfsLHCcoPOD3w9NUH_NkqQ3aWf"
+          alt="Founders of Yusephinum"
+          className="founders"
+        />
         <p className="story-text">
           Yusephinum LLC is a Queer/POC/AAPI artist collective with a proclivity for video and music
           production, video game scenario writing, and photography. We are dedicated to the
