@@ -1,8 +1,20 @@
 .Gallery {
+  background: url("https://drive.google.com/uc?id=1l4wycxofiu7ZyUa3PgJ5Pc5wst8ihxyT");
+  min-height: 100vh;
   .light-boxes {
     display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
     place-items: center;
     grid-template-columns: repeat(5, minmax(auto-fill, 24rem));
     grid-template-rows: minmax(1, minmax(auto-fill, 36rem));
+
+    h1 {
+      color: #fff;
+    }
+    img {
+      max-width: 12rem;
+    }
   }
 }

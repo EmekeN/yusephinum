@@ -1,7 +1,7 @@
 import { useEffectOnlyOnce } from "../hooks/useEffectOnlyOnce";
 import Seo from "./../components/Seo";
 import Logo from "./../images/logos/yusephinum-logo.svg";
-import "./../styles/lore.scss";
+import "./../styles/gallery.scss";
 // import "./../styles/index.scss";
 import gsap from "gsap";
 // import { MotionPathPlugin } from "gsap/MotionPathPlugin";
@@ -42,9 +42,34 @@ const Gallery = () => {
       </header>
       <section className="light-boxes">
         <h1>Light Boxes</h1>
+        <img src="https://drive.google.com/uc?id=11aYQu1f1z1aFIJ7MrVA9NytYl3xgmS7t" alt="" />
+        <img src="https://drive.google.com/uc?id=13vZZk9vwuKqO_hW95yKI4WoSfz0xBhfq" alt="" />
+        <img src="https://drive.google.com/uc?id=13vZZk9vwuKqO_hW95yKI4WoSfz0xBhfq" alt="" />
+        <img src="https://drive.google.com/uc?id=13vZZk9vwuKqO_hW95yKI4WoSfz0xBhfq" alt="" />
+        <img src="https://drive.google.com/uc?id=13vZZk9vwuKqO_hW95yKI4WoSfz0xBhfq" alt="" />
+        <img src="https://drive.google.com/uc?id=13vZZk9vwuKqO_hW95yKI4WoSfz0xBhfq" alt="" />
+        <img src="https://drive.google.com/uc?id=13vZZk9vwuKqO_hW95yKI4WoSfz0xBhfq" alt="" />
+        <img src="https://drive.google.com/uc?id=13vZZk9vwuKqO_hW95yKI4WoSfz0xBhfq" alt="" />
+        <img src="https://drive.google.com/uc?id=13vZZk9vwuKqO_hW95yKI4WoSfz0xBhfq" alt="" />
+        <img src="https://drive.google.com/uc?id=13vZZk9vwuKqO_hW95yKI4WoSfz0xBhfq" alt="" />
+        <img src="https://drive.google.com/uc?id=13vZZk9vwuKqO_hW95yKI4WoSfz0xBhfq" alt="" />
+        <img src="https://drive.google.com/uc?id=13vZZk9vwuKqO_hW95yKI4WoSfz0xBhfq" alt="" />
       </section>
       <section className="light-boxes">
         <h1>Opening Gallery</h1>
+        <h1>Light Boxes</h1>
+        <img src="https://drive.google.com/uc?id=11aYQu1f1z1aFIJ7MrVA9NytYl3xgmS7t" alt="" />
+        <img src="https://drive.google.com/uc?id=13vZZk9vwuKqO_hW95yKI4WoSfz0xBhfq" alt="" />
+        <img src="https://drive.google.com/uc?id=k_PfPUJ4v9arLkHhb3k3fyV8YHy9rIF" alt="" />
+        <img src="https://drive.google.com/uc?id=k_PfPUJ4v9arLkHhb3k3fyV8YHy9rIF" alt="" />
+        <img src="https://drive.google.com/uc?id=k_PfPUJ4v9arLkHhb3k3fyV8YHy9rIF" alt="" />
+        <img src="https://drive.google.com/uc?id=k_PfPUJ4v9arLkHhb3k3fyV8YHy9rIF" alt="" />
+        <img src="https://drive.google.com/uc?id=k_PfPUJ4v9arLkHhb3k3fyV8YHy9rIF" alt="" />
+        <img src="https://drive.google.com/uc?id=k_PfPUJ4v9arLkHhb3k3fyV8YHy9rIF" alt="" />
+        <img src="https://drive.google.com/uc?id=k_PfPUJ4v9arLkHhb3k3fyV8YHy9rIF" alt="" />
+        <img src="https://drive.google.com/uc?id=k_PfPUJ4v9arLkHhb3k3fyV8YHy9rIF" alt="" />
+        <img src="https://drive.google.com/uc?id=k_PfPUJ4v9arLkHhb3k3fyV8YHy9rIF" alt="" />
+        <img src="https://drive.google.com/uc?id=k_PfPUJ4v9arLkHhb3k3fyV8YHy9rIF" alt="" />
       </section>
     </div>
   );
