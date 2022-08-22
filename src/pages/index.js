@@ -5,6 +5,7 @@ import CompassLogo from "./../images/logos/yusephinum-compass-white-logo.svg";
 import "./../styles/index.scss";
 import { Link } from "gatsby";
 import gsap from "gsap";
+import { SplitText, CustomEase } from "gsap/all";
 import React, { useRef } from "react";
 
 const IndexPage = () => {
@@ -24,11 +25,7 @@ const IndexPage = () => {
     // console.log("Has played: ", hasPlayedHomeIntro);
 
     // gsap.registerPlugin(TextPlugin);
-    const storyText = [
-      "The Yusephinum is the cradle of existence.",
-      " It houses within its seemingly infinite expanse the Seven Spheres.",
-      "Welcome to a strange new dimension.",
-    ];
+    const storyText = ["Welcome to a strange new dimension."];
     const storyTimeline = gsap.timeline({ defaults: { ease: "power1" } });
     const nameStartState = {
       opacity: 0,
@@ -51,23 +48,22 @@ const IndexPage = () => {
     const compassStart = {};
     const compassEnd = {};
 
-    if (hasPlayedHomeIntro) {
-      //prettier-ignore
-      storyTimeline
-        .to([storyRef.current], {opacity: 0, duration: 0, })
-        .fromTo([compassRef.current], {x: "0%", opacity: .5, delay:.5}, {x: 0, opacity: 1, rotate: 360, duration: 1.25, ease: "expo.power4"})
-        .to([galleryRef.current, aboutRef.current, loreRef.current, storyLinkRef.current], {opacity: 1, stagger: .5, duration: .25});
-      return;
-    }
+    // if (hasPlayedHomeIntro) {
+    //   //prettier-ignore
+    //   storyTimeline
+    //     .to([storyRef.current], {opacity: 0, duration: 0, })
+    //     .fromTo([compassRef.current], {x: "0%", opacity: .5, delay:.5}, {x: 0, opacity: 1, rotate: 360, duration: 1.25, ease: "expo.power4"})
+    //     .to([galleryRef.current, aboutRef.current, loreRef.current, storyLinkRef.current], {opacity: 1, stagger: .5, duration: .25});
+    //   return;
+    // }
+    // setHasPlayedHomeIntro(true);
 
     //prettier-ignore
     storyTimeline
-                .fromTo([storyRef.current],{y: "-100%", opacity: 0,delay: .5}, {y: "0", duration: 2, opacity:1, ease: "power1"})
-
+                .fromTo([storyRef.current],{y: "-100%", opacity:" 0"}, {y: "0", duration: 2, opacity:1, ease: "power1" })
+                .to([storyRef.current],{ opacity:" 0", ease: "power4", stagger: ".2"})
                 .fromTo([compassRef.current], {x: "5%"}, {x: 0, opacity: 1, rotate: 360, duration: 1.25, ease: "expo.out"})
                 .to([galleryRef.current,storyLinkRef.current, aboutRef.current, loreRef.current, ], {opacity: 1, stagger: .5, duration: .25});
-
-    setHasPlayedHomeIntro(true);
   });
   return (
     <div className="Home">

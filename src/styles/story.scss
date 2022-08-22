@@ -1,10 +1,19 @@
 .Story {
-  background: linear-gradient(0deg, rgba(0, 36, 17, 0.72), rgba(0, 36, 17, 0.52)),
-    url("./../images/home/home-bg.jpg");
-  background-attachment: scroll;
-  background-position: top right;
+  position: relative;
+  width: 100vw;
+  height: 200vh;
+  background: linear-gradient(0deg, hsla(214, 28%, 10%, 0.5), hsl(214, 28%, 10%, 0.5)),
+    url("https://yusephinum-web-assets.s3.us-west-2.amazonaws.com/illustration_5.jpg");
+  // background-position: top right;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 0 0;
+    z-index: -1;
+    transform: rotate(180deg);
+  }
   position: relative;
   min-height: 100vh;
   .story-ctn {
@@ -12,10 +21,18 @@
     display: grid;
     row-gap: 1em;
   }
+
+  // #part-1 {
+  //   opacity: 0;
+  // }
   .story-text {
     max-width: 55ch;
     margin: auto;
     font-size: 1.625rem;
     color: var(--neutral-clr-04);
+    &:nth-of-type(2),
+    &:nth-of-type(3) {
+      opacity: 0;
+    }
   }
 }

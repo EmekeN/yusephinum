@@ -1,6 +1,6 @@
 .Home {
-  background: linear-gradient(0deg, rgba(0, 36, 17, 0.72), rgba(0, 36, 17, 0.12)),
-    url("https://drive.google.com/uc?id=1bVV7mJCC2zH3Ink3ObvGBLTqjwiv9KBc");
+  background: linear-gradient(0deg, hsla(214, 28%, 10%, 0.5), hsl(214, 28%, 10%, 0.5)),
+    url("https://yusephinum-web-assets.s3.us-west-2.amazonaws.com/illustration_3.jpg");
 
   background-attachment: scroll;
   background-position: top right;
@@ -21,6 +21,7 @@
     color: white;
     font-size: clamp(2em, 5vw, 4em);
     text-align: center;
+    opacity: 0;
   }
   .link-ctn {
     --link-size: 10vw;
@@ -56,13 +57,13 @@
       z-index: 3;
       &::after {
         content: "";
-        background-image: url("./../images/polygrid.png");
+        background-image: url("https://yusephinum-web-assets.s3.us-west-2.amazonaws.com/sigil-white.svg");
         background-position: center;
-        background-repeat: repeat-y;
+        background-repeat: no-repeat;
         position: absolute;
         inset: 0 0 0 0;
-        width: var(--link-size);
-        height: var(--link-size);
+        width: calc(var(--link-size) - 0rem);
+        height: calc(var(--link-size) - 0rem);
         border-radius: 50%;
         z-index: 2;
         transition: 200ms ease-in all;
@@ -70,7 +71,7 @@
       &:hover,
       &:active {
         &::after {
-          background-image: url("./../images/polygrid-light.png");
+          background-image: url("https://yusephinum-web-assets.s3.us-west-2.amazonaws.com/sigil-black.svg");
         }
       }
     }
