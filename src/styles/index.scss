@@ -1,6 +1,7 @@
 .Home {
-  background: linear-gradient(0deg, rgba(0, 36, 17, 0.72), rgba(0, 36, 17, 0.12)),
-    url("./../images/home/home-bg.jpg");
+  background: linear-gradient(0deg, hsla(214, 28%, 10%, 0.5), hsl(214, 28%, 10%, 0.5)),
+    url("https://yusephinum-web-assets.s3.us-west-2.amazonaws.com/illustration_3.jpg");
+
   background-attachment: scroll;
   background-position: top right;
   background-size: cover;
@@ -20,6 +21,7 @@
     color: white;
     font-size: clamp(2em, 5vw, 4em);
     text-align: center;
+    opacity: 0;
   }
   .link-ctn {
     --link-size: 10vw;
@@ -30,7 +32,7 @@
     grid-template-columns: repeat(3, minmax(1fr, var(--link-size)));
     max-width: 100vw;
     grid-template-areas:
-      ". tickets ."
+      ". gallery ."
       "about . story"
       ".  lore . ";
     margin: auto;
@@ -55,13 +57,13 @@
       z-index: 3;
       &::after {
         content: "";
-        background-image: url("./../images/polygrid.png");
+        background-image: url("https://yusephinum-web-assets.s3.us-west-2.amazonaws.com/sigil-white.svg");
         background-position: center;
-        background-repeat: repeat-y;
+        background-repeat: no-repeat;
         position: absolute;
         inset: 0 0 0 0;
-        width: var(--link-size);
-        height: var(--link-size);
+        width: calc(var(--link-size) - 0rem);
+        height: calc(var(--link-size) - 0rem);
         border-radius: 50%;
         z-index: 2;
         transition: 200ms ease-in all;
@@ -69,7 +71,8 @@
       &:hover,
       &:active {
         &::after {
-          background-image: url("./../images/polygrid-light.png");
+          background-image: url("https://yusephinum-web-assets.s3.us-west-2.amazonaws.com/sigil-white.svg");
+          transform: scale(1.75);
         }
       }
     }
@@ -80,8 +83,8 @@
       justify-self: flex-start;
       transform: translateX(var(--text-offset));
     }
-    .tickets {
-      grid-area: tickets;
+    .gallery {
+      grid-area: gallery;
       justify-self: center;
       align-self: flex-end;
     }
@@ -96,7 +99,7 @@
     }
     @media screen and (min-width: 700px) {
       .lore,
-      .tickets {
+      .gallery {
         align-self: center;
       }
       // --text-offset: -100%;
@@ -105,7 +108,7 @@
       .lore {
         align-self: flex-end;
       }
-      .tickets {
+      .gallery {
         align-self: flex-start;
       }
       --text-offset: 2vw;
@@ -128,5 +131,11 @@
     max-height: 60vh;
     width: auto;
     margin: auto;
+
+    width: 18rem;
+
+    @media screen and (min-width: 800px) {
+      width: 100%;
+    }
   }
 }

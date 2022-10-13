@@ -9,6 +9,13 @@ import { SplitText } from "gsap/all";
 import React, { useRef } from "react";
 
 const About = () => {
+  const founderImgRef = useRef();
+  const richardImgRef = useRef();
+  const ckImgRef = useRef();
+  const story1Ref = useRef();
+  const story2Ref = useRef();
+  const story3Ref = useRef();
+
   useEffectOnlyOnce(
     () => {
     // const storyTimeline = gsap.timeline({ defaults: { ease: "power1" } });
@@ -30,8 +37,13 @@ const About = () => {
           </a>
         </section>
       </header>
-      <section className="intro">
-        <img src={Founders} alt="Founders of Yusephinum" className="founders" />
+      <section className="one">
+        <img
+          src="https://yusephinum-web-assets.s3.us-west-2.amazonaws.com/founders.jpg"
+          alt="Founders of Yusephinum"
+          className="founders"
+          loading="eager"
+        />
         <p className="story-text">
           Yusephinum LLC is a Queer/POC/AAPI artist collective with a proclivity for video and music
           production, video game scenario writing, and photography. We are dedicated to the
@@ -39,8 +51,10 @@ const About = () => {
           Our mission is to breathe life into evocative characters who are nuanced, dimensional, and
           so much more than any single aspect of their identity.
         </p>
+      </section>
+      <section className="two">
         <img
-          src="https://drive.google.com/uc?id=1xwhGuZtqgpzNSWEC3aKc2d_WrCiIUoxR"
+          src="https://yusephinum-web-assets.s3.us-west-2.amazonaws.com/richard.png"
           alt="Richard Peacock"
           className="founders"
         />
@@ -54,17 +68,15 @@ const About = () => {
           music, and character design, as well as, and assembling a team of artists.
         </p>
         <p className="story-text">
-          With the shutdown of theaters during the pandemic, Richard was given an opportunity to
-          look at what he wanted his mark on the world to be. What began as an exploration in music
-          composition for video games quickly developed into the desire to tell stories that
-          featured characters who are often underrepresented and grossly stereotyped in video game
-          media. He created this collective of queer, BIPOC, and AAPI artists to serve as a hub to
-          create and produce work that challenges the current norm of what sort of character gets to
-          be at the helm of a video game narrative.{" "}
+          He created this collective of queer, BIPOC, and AAPI artists to serve as a hub to create
+          and produce work that challenges the current norm of what sort of character gets to be at
+          the helm of a video game narrative.{" "}
         </p>
+      </section>
+      <section className="three">
         <img
-          src="https://drive.google.com/uc?id=11FIUqtkyEs7vT7q-4p8CdWcfUpcprBMT"
-          alt="Richard Peacock"
+          src="https://yusephinum-web-assets.s3.us-west-2.amazonaws.com/ck.png"
+          alt="CK Ong"
           className="founders"
         />
         <p className="story-text">
