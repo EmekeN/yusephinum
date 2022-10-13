@@ -71,7 +71,8 @@
       &:hover,
       &:active {
         &::after {
-          background-image: url("https://yusephinum-web-assets.s3.us-west-2.amazonaws.com/sigil-black.svg");
+          background-image: url("https://yusephinum-web-assets.s3.us-west-2.amazonaws.com/sigil-white.svg");
+          transform: scale(1.75);
         }
       }
     }

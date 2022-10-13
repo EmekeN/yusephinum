@@ -41,6 +41,13 @@ const About = () => {
   });
   return (
     <div className="Story">
+      <img
+        src="https://yusephinum-web-assets.s3.us-west-2.amazonaws.com/illustration_3.jpg"
+        alt="Yusephinum fantasy world"
+        style={{
+          zIndex: "-1",
+        }}
+      />
       <Seo
         title={"The Story"}
         description="The Yusephinum is the cradle of existence. It houses within its seemingly infinite expanse the seven dimensions, known as the Seven Spheres."
