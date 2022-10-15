@@ -22,60 +22,19 @@ const IndexPage = () => {
   // const eventLink = "https://www.eventbrite.com/e/yusephinum-launch-tickets-345876494907";
 
   useEffectOnlyOnce(() => {
-    // console.log("Has played: ", hasPlayedHomeIntro);
-
-    // gsap.registerPlugin(TextPlugin);
-    const storyText = ["Welcome to a strange new dimension."];
-    const storyTimeline = gsap.timeline({ defaults: { ease: "power1" } });
-    gsap.registerPlugin(TextPlugin);
     gsap.registerPlugin(SplitText);
-    const part1 = document.getElementById("part1");
-    const quote1 = new SplitText(storyRef.current, { type: "words, chars" });
-    const tl = gsap.timeline({ defaults: { perspective: "400" } }),
-      chars = quote1.chars; //an array of all the divs that wrap each character
-
-    // console.log(quote1.chars);
-
-    //prettier-ignore
-    tl.from(chars, {duration: 1.2, opacity: 0,scale: 0, y: 80, rotationX: 180, transformOrigin: "0% 50% -50", ease: "back", stagger: 0.01, })
-    const nameStartState = {
-      opacity: 0,
-      delay: 0,
-      // x: "-100%",
-      y: "-100%",
-    };
-    const nameEndState = {
-      // x: "0",
-      y: "0",
-      opacity: 1,
-      duration: 3,
-      delay: 1.5,
-    };
-    const textConfig = {
-      delimiter: "",
-      speed: 1.5,
-    };
-
-    const compassStart = {};
-    const compassEnd = {};
-
-    // if (hasPlayedHomeIntro) {
-    //   //prettier-ignore
-    //   storyTimeline
-    //     .to([storyRef.current], {opacity: 0, duration: 0, })
-    //     .fromTo([compassRef.current], {x: "0%", opacity: .5, delay:.5}, {x: 0, opacity: 1, rotate: 360, duration: 1.25, ease: "expo.power4"})
-    //     .to([galleryRef.current, aboutRef.current, loreRef.current, storyLinkRef.current], {opacity: 1, stagger: .5, duration: .25});
-    //   return;
-    // }
-    // setHasPlayedHomeIntro(true);
+    const storyTimeline = gsap.timeline({ defaults: { ease: "power1" } });
+    let mySplitText = new SplitText(storyRef.current, { type: "words, chars", ease: "Sine.in" });
+    mySplitText.split({ type: "chars, words, lines" });
 
     //prettier-ignore
     storyTimeline
-                // .fromTo([storyRef.current],{y: "-100%", opacity:" 0"}, {y: "0", duration: 2, opacity:1, ease: "power1" })
-                .to([storyRef.current],{ opacity:" 0", ease: "power4", stagger: ".2"})
-                .fromTo([compassRef.current], {x: "5%"}, {x: 0, opacity: 1, rotate: 360, duration: 1.25, ease: "expo.out"})
-                .to([galleryRef.current,storyLinkRef.current, aboutRef.current, loreRef.current, ], {opacity: 1, stagger: .5, duration: .25});
+      .from(mySplitText.words, {opacity: 0, duration: 2.5, scale: 0, autoAlpha: 0, y: "-50%", force3D: true, stagger: 0.02,}, 0.5)
+      .to(mySplitText.chars, {opacity: 0, duration: 1})
+      .fromTo([compassRef.current], {x: "5%"}, {x: 0, opacity: 1, rotate: 360, duration: 1.25, ease: "expo.out"})
+      .to([galleryRef.current,storyLinkRef.current, aboutRef.current, loreRef.current, ], {opacity: 1, stagger: .5, duration: .25});
   });
+
   return (
     <div className="Home">
       <Seo
@@ -84,12 +43,20 @@ const IndexPage = () => {
       />
       <section className="hero-story">
         <h1 ref={storyRef}>Welcome to a strange new dimension.</h1>
+
         <div className="link-ctn">
           <div ref={aboutRef} className="planet-link about">
             <Link to="/about">About</Link>
           </div>
           <div ref={galleryRef} className="planet-link gallery">
-            <Link to="/gallery">Gallery</Link>
+            <a
+              href="https://www.eventbrite.com/e/the-yusephinum-project-launch-party-tickets-430787375637"
+              target="_blank"
+              rel="noreferer noopener"
+              style={{ textAlign: "center" }}
+            >
+              Launch Party
+            </a>
           </div>
           <div ref={storyLinkRef} className="planet-link story">
             <Link to="/story">Story</Link>
