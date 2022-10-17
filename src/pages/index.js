@@ -28,7 +28,7 @@ const IndexPage = () => {
     //prettier-ignore
     storyTimeline
       .from(mySplitText.words, {opacity: 0, duration: 2, scale: 0, autoAlpha: 0, y: "-50%", force3D: true, stagger: 0.02, filter: "blur(.5rem)"})
-    .to(mySplitText.chars, {opacity: 0, duration: 1, stagger: ".05"}, 4)
+    .to(mySplitText.chars, {opacity: 0, duration: 1, stagger: ".05",}, 4)
     .to([compassRef.current], {x: 0, opacity: 1, rotate: 360, duration: 1, delay: .15, ease: "Sine.in"},)
     .to([galleryRef.current,storyLinkRef.current, aboutRef.current, loreRef.current, ], {opacity: 1, stagger: .5, duration: .25});
   });
@@ -62,8 +62,8 @@ const IndexPage = () => {
           <div ref={loreRef} className="planet-link lore">
             <Link to="/lore">Lore</Link>
           </div>
+          <img src={CompassLogo} ref={compassRef} alt="Yusephinum" className="center-logo" />
         </div>
-        <img src={CompassLogo} ref={compassRef} alt="Yusephinum" className="center-logo" />
       </section>
     </div>
   );
