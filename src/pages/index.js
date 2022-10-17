@@ -16,10 +16,8 @@ const IndexPage = () => {
   const compassRef = useRef();
   const galleryRef = useRef();
   const aboutRef = useRef();
-  // const galleryRef = useRef();
   const loreRef = useRef();
   const storyLinkRef = useRef();
-  // const eventLink = "https://www.eventbrite.com/e/yusephinum-launch-tickets-345876494907";
 
   useEffectOnlyOnce(() => {
     gsap.registerPlugin(SplitText);
@@ -29,10 +27,10 @@ const IndexPage = () => {
 
     //prettier-ignore
     storyTimeline
-      .from(mySplitText.words, {opacity: 0, duration: 2.5, scale: 0, autoAlpha: 0, y: "-50%", force3D: true, stagger: 0.02,}, 0.5)
-      .to(mySplitText.chars, {opacity: 0, duration: 1})
-      .fromTo([compassRef.current], {x: "5%"}, {x: 0, opacity: 1, rotate: 360, duration: 1.25, ease: "expo.out"})
-      .to([galleryRef.current,storyLinkRef.current, aboutRef.current, loreRef.current, ], {opacity: 1, stagger: .5, duration: .25});
+      .from(mySplitText.words, {opacity: 0, duration: 2, scale: 0, autoAlpha: 0, y: "-50%", force3D: true, stagger: 0.02, filter: "blur(.5rem)"})
+    .to(mySplitText.chars, {opacity: 0, duration: 1, stagger: ".05"}, 4)
+    .to([compassRef.current], {x: 0, opacity: 1, rotate: 360, duration: 1, delay: .15, ease: "Sine.in"},)
+    .to([galleryRef.current,storyLinkRef.current, aboutRef.current, loreRef.current, ], {opacity: 1, stagger: .5, duration: .25});
   });
 
   return (
@@ -59,7 +57,7 @@ const IndexPage = () => {
             </a>
           </div>
           <div ref={storyLinkRef} className="planet-link story">
-            <Link to="/story">Story</Link>
+            <Link to="/coming-soon">Store</Link>
           </div>
           <div ref={loreRef} className="planet-link lore">
             <Link to="/lore">Lore</Link>
