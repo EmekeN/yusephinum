@@ -1,5 +1,5 @@
 .Header {
-  padding: 0.75rem 1rem 0.5rem 1rem;
+  padding: 1rem .5rem 1rem .5rem;
   background-color: var(--primary-clr);
   background-color: rgb(6, 5, 5);
   display: flex;
@@ -8,7 +8,7 @@
   justify-content: center;
   img {
     // margin: auto;
-    height: 1.25rem;
+    height: 1.5rem;
     width: auto;
   }
 }

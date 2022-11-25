@@ -6,7 +6,7 @@ import "./../styles/index.scss";
 import { Link } from "gatsby";
 import gsap from "gsap";
 import { SplitText, CustomEase, TextPlugin } from "gsap/all";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 const IndexPage = () => {
   const [hasPlayedHomeIntro, setHasPlayedHomeIntro] = useSessionStorage("hasPlayedHomeIntro", {
@@ -18,29 +18,43 @@ const IndexPage = () => {
   const aboutRef = useRef();
   const loreRef = useRef();
   const storyLinkRef = useRef();
+  const [mounted, setMounted] = useState(false)
+  const timelineRef = useRef()
+  useEffectOnlyOnce(() =>{setMounted(true)
+    storyRef.current.classList.remove("visually-hidden")
+  },[])
 
-  useEffectOnlyOnce(() => {
+  
     gsap.registerPlugin(SplitText);
-    const storyTimeline = gsap.timeline({ defaults: { ease: "power1" } });
-    let mySplitText = new SplitText(storyRef.current, { type: "words, chars", ease: "Sine.in" });
-    mySplitText.split({ type: "chars, words, lines" });
+    if(mounted) {
 
-    //prettier-ignore
-    storyTimeline
-      .from(mySplitText.words, {opacity: 0, duration: 2, scale: 0, autoAlpha: 0, y: "-50%", force3D: true, stagger: 0.02, filter: "blur(.5rem)"})
-    .to(mySplitText.chars, {opacity: 0, duration: 1, stagger: ".05",}, 4)
-    .to([compassRef.current], {x: 0, opacity: 1, rotate: 360, duration: 1, delay: .15, ease: "Sine.in"},)
-    .to([galleryRef.current,storyLinkRef.current, aboutRef.current, loreRef.current, ], {opacity: 1, stagger: .5, duration: .25});
-  });
+      timelineRef.current = gsap?.timeline({ defaults: { ease: "power1" } });
+      let mySplitText = new SplitText(storyRef.current, { type: "words, chars", ease: "Sine.in" });
+      mySplitText.split({ type: "chars, words, lines" });
+  
+      //prettier-ignore
+      timelineRef.current
+        .from(mySplitText.words, {opacity: 0, duration: 2, scale: 0, autoAlpha: 0, y: "-50%", force3D: true, stagger: 0.02, filter: "blur(.5rem)"})
+      .to(mySplitText.chars, {opacity: 0, duration: 1, stagger: ".05",}, 4)
+      .to([compassRef.current], {x: 0, opacity: 1, rotate: 360, duration: 1, delay: .15, ease: "Sine.in"},)
+      .to([galleryRef.current,storyLinkRef.current, aboutRef.current, loreRef.current, ], {opacity: 1, stagger: .5, duration: .25});
+    }
+
+    const handleKillAnimation = () => {
+      if(timelineRef.current) {
+        timelineRef.current.seek(timelineRef.current.endTime() - 2)
+      }
+    }
+  
 
   return (
-    <div className="Home">
+    <div className="Home" onClick={handleKillAnimation }>
       <Seo
         title={"Welcome to Yusephinum"}
         description="An episodic world building experience told through interdisciplinary installations that explore the complexity of existence and finding a place to call home."
       />
       <section className="hero-story">
-        <h1 ref={storyRef}>Welcome to a strange new dimension.</h1>
+        <h1 ref={storyRef} className="title visually-hidden" style={{zIndex: 0}}>Welcome to a strange new dimension.</h1>
 
         <div className="link-ctn">
           <div ref={aboutRef} className="planet-link about">
@@ -48,20 +62,20 @@ const IndexPage = () => {
           </div>
           <div ref={galleryRef} className="planet-link gallery">
             <a
-              href="https://www.eventbrite.com/e/the-yusephinum-project-launch-party-tickets-430787375637"
+              href="http://www.greatjonesgallery.com/"
               target="_blank"
               rel="noreferer noopener"
               style={{ textAlign: "center" }}
             >
-              Launch Party
+              Gallery
             </a>
           </div>
           <div ref={storyLinkRef} className="planet-link story">
-            <Link to="/coming-soon">Store</Link>
+            <a href="https://yusephinum.myshopify.com/" target="_blank" rel="noopener noreferrer">Store</a>
           </div>
-          <div ref={loreRef} className="planet-link lore">
+          {/* <div ref={loreRef} className="planet-link lore">
             <Link to="/lore">Lore</Link>
-          </div>
+          </div> */}
           <img src={CompassLogo} ref={compassRef} alt="Yusephinum" className="center-logo" />
         </div>
       </section>
