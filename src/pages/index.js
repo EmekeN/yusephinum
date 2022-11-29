@@ -45,15 +45,22 @@ const IndexPage = () => {
         timelineRef.current.seek(timelineRef.current.endTime() - 2)
       }
     }
+
+    const handleKeyPress = (e) => {
+      if(e.key === "Enter") {
+        e.preventDefault()
+        handleKillAnimation()
+      }
+    }
   
 
   return (
-    <div className="Home" onClick={handleKillAnimation }>
+    <div className="Home" onClick={handleKillAnimation} onKeyPress={(e) => handleKeyPress(e)} >
       <Seo
         title={"Welcome to Yusephinum"}
         description="An episodic world building experience told through interdisciplinary installations that explore the complexity of existence and finding a place to call home."
       />
-      <section className="hero-story">
+      <section className="hero-story" onKeyPress={(e) => handleKeyPress(e)}>
         <h1 ref={storyRef} className="title visually-hidden" style={{zIndex: 0}}>Welcome to a strange new dimension.</h1>
 
         <div className="link-ctn">
