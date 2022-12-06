@@ -5,7 +5,7 @@ import "./../styles/index.scss";
 import { Link } from "gatsby";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
-import React, {  useRef } from "react";
+import React, {  useRef, useState } from "react";
 
 const IndexPage = () => {
   const storyRef = useRef();
@@ -14,14 +14,14 @@ const IndexPage = () => {
   const aboutRef = useRef();
   const loreRef = useRef();
   const storyLinkRef = useRef();
-  const hasPlayedIntroRef = useRef(false)
+  const hasPlayedIntroRef = useState(false)
   const timelineRef = useRef()
 
 
   useEffectOnlyOnce(() =>{
     storyRef.current.classList.remove("visually-hidden")
     gsap.registerPlugin(SplitText);
-    timelineRef.current = gsap?.timeline({ defaults: { ease: "power1", onComplete: () => { hasPlayedIntroRef.current = true} } });
+    timelineRef.current = gsap?.timeline({ defaults: { ease: "power1", onComplete: () =>{ hasPlayedIntroRef.current = true} } });
     let mySplitText = new SplitText(storyRef.current, { type: "words, chars", ease: "Sine.in" });
     mySplitText.split({ type: "chars, words, lines" });
   
@@ -35,22 +35,20 @@ const IndexPage = () => {
 
     const handleKillAnimation = (e) => {
       e.preventDefault()
-      console.log("has played intro: ", hasPlayedIntroRef.current)
       if(timelineRef.current && !hasPlayedIntroRef.current) {
-        hasPlayedIntroRef.current = true;
         timelineRef.current.seek(timelineRef.current.endTime() - 2)
       }
     }
 
     const handleKeyPress = (e) => {
-      e.preventDefault()
       if(e.key === "Enter") {
+        e.preventDefault()
         handleKillAnimation()
       }
     }
 
   return (
-    <div className="Home" onClick={handleKillAnimation} onKeyPress={handleKeyPress}>
+    <div className="Home" onClick={handleKillAnimation} onKeyPress={(e) => handleKeyPress(e)}>
       <Seo
         title={"Welcome to Yusephinum"}
         description="An episodic world building experience told through interdisciplinary installations that explore the complexity of existence and finding a place to call home."
@@ -86,15 +84,3 @@ const IndexPage = () => {
 };
 export default IndexPage;
 
-
-
-const AudioPlayer = (url) => {
-  return (
-    <div className="AudioPlayer" style={{ opacity: "0" }}>
-      <audio controls width className="player">
-        <source src="https://yusephinum-web-assets.s3.us-west-2.amazonaws.com/Yusephinum-5.mp3" />
-        Sorry you can't hear this
-      </audio>
-    </div>
-  );
-};
