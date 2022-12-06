@@ -1,47 +1,41 @@
 import { useEffectOnlyOnce } from "../hooks/useEffectOnlyOnce";
-import { useSessionStorage } from "../hooks/useSesionStorage";
 import Seo from "./../components/Seo";
 import CompassLogo from "./../images/logos/yusephinum-compass-white-logo.svg";
 import "./../styles/index.scss";
 import { Link } from "gatsby";
 import gsap from "gsap";
-import { SplitText, CustomEase, TextPlugin } from "gsap/all";
-import React, { useRef, useState } from "react";
+import { SplitText } from "gsap/all";
+import React, {  useRef, useState } from "react";
 
 const IndexPage = () => {
-  const [hasPlayedHomeIntro, setHasPlayedHomeIntro] = useSessionStorage("hasPlayedHomeIntro", {
-    hasPlayedHomeIntro: false,
-  });
   const storyRef = useRef();
   const compassRef = useRef();
   const galleryRef = useRef();
   const aboutRef = useRef();
   const loreRef = useRef();
   const storyLinkRef = useRef();
-  const [mounted, setMounted] = useState(false)
+  const hasPlayedIntroRef = useState(false)
   const timelineRef = useRef()
-  useEffectOnlyOnce(() =>{setMounted(true)
+
+
+  useEffectOnlyOnce(() =>{
     storyRef.current.classList.remove("visually-hidden")
-  },[])
-
-  
     gsap.registerPlugin(SplitText);
-    if(mounted) {
-
-      timelineRef.current = gsap?.timeline({ defaults: { ease: "power1" } });
-      let mySplitText = new SplitText(storyRef.current, { type: "words, chars", ease: "Sine.in" });
-      mySplitText.split({ type: "chars, words, lines" });
+    timelineRef.current = gsap?.timeline({ defaults: { ease: "power1", onComplete: () =>{ hasPlayedIntroRef.current = true} } });
+    let mySplitText = new SplitText(storyRef.current, { type: "words, chars", ease: "Sine.in" });
+    mySplitText.split({ type: "chars, words, lines" });
   
-      //prettier-ignore
-      timelineRef.current
-        .from(mySplitText.words, {opacity: 0, duration: 2, scale: 0, autoAlpha: 0, y: "-50%", force3D: true, stagger: 0.02, filter: "blur(.5rem)"})
-      .to(mySplitText.chars, {opacity: 0, duration: 1, stagger: ".05",}, 4)
-      .to([compassRef.current], {x: 0, opacity: 1, rotate: 360, duration: 1, delay: .15, ease: "Sine.in"},)
-      .to([galleryRef.current,storyLinkRef.current, aboutRef.current, loreRef.current, ], {opacity: 1, stagger: .5, duration: .25});
-    }
+    //prettier-ignore
+    timelineRef.current
+      .from(mySplitText.words, {opacity: 0, duration: 2, scale: 0, autoAlpha: 0, y: "-50%", force3D: true, stagger: 0.02, filter: "blur(.5rem)"})
+    .to(mySplitText.chars, {opacity: 0, duration: 1, stagger: ".05",}, 4)
+    .to([compassRef.current], {x: 0, opacity: 1, rotate: 360, duration: 1, delay: .15, ease: "Sine.in"},)
+    .to([galleryRef.current,storyLinkRef.current, aboutRef.current, loreRef.current, ], {opacity: 1, stagger: .5, duration: .25});
+  }, [])
 
-    const handleKillAnimation = () => {
-      if(timelineRef.current) {
+    const handleKillAnimation = (e) => {
+      e.preventDefault()
+      if(timelineRef.current && !hasPlayedIntroRef.current) {
         timelineRef.current.seek(timelineRef.current.endTime() - 2)
       }
     }
@@ -55,12 +49,12 @@ const IndexPage = () => {
   
 
   return (
-    <div className="Home" onClick={handleKillAnimation} onKeyPress={(e) => handleKeyPress(e)} >
+    <div className="Home" onClick={handleKillAnimation} onKeyPress={(e) => handleKeyPress(e)}>
       <Seo
         title={"Welcome to Yusephinum"}
         description="An episodic world building experience told through interdisciplinary installations that explore the complexity of existence and finding a place to call home."
       />
-      <section className="hero-story" onKeyPress={(e) => handleKeyPress(e)}>
+      <section className="hero-story">
         <h1 ref={storyRef} className="title visually-hidden" style={{zIndex: 0}}>Welcome to a strange new dimension.</h1>
 
         <div className="link-ctn">
@@ -71,7 +65,7 @@ const IndexPage = () => {
             <a
               href="http://www.greatjonesgallery.com/"
               target="_blank"
-              rel="noreferer noopener"
+              rel="noreferrer noopener"
               style={{ textAlign: "center" }}
             >
               Gallery

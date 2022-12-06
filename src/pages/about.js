@@ -5,25 +5,18 @@ import Logo from "./../images/logos/yusephinum-logo.svg";
 import "./../styles/about.scss";
 // import "./../styles/index.scss";
 import gsap from "gsap";
-import { SplitText } from "gsap/all";
+import { ScrollTrigger } from "gsap/all";
 import React, { useRef } from "react";
 
 const About = () => {
-  const founderImgRef = useRef();
-  const richardImgRef = useRef();
-  const ckImgRef = useRef();
+  // const founderImgRef = useRef();
+  // const richardImgRef = useRef();
+  // const ckImgRef = useRef();
   const story1Ref = useRef();
   const story2Ref = useRef();
   const story3Ref = useRef();
 
-  useEffectOnlyOnce(
-    () => {
-    // const storyTimeline = gsap.timeline({ defaults: { ease: "power1" } });
-    //prettier-ignore
-    // storyTimeline
-    //             .fromTo([storyRef.current],{y: "-100%", opacity: 0}, {y: "0", duration: 2, opacity:1, ease: "power1"})
-  }
-  );
+
   return (
     <div className="About">
       <Seo
@@ -37,31 +30,32 @@ const About = () => {
           </a>
         </section>
       </header>
-      <section className="ctn one">
+      <section className="ctn one" ref={story2Ref}>
         <img
           src="https://yusephinum-web-assets.s3.us-west-2.amazonaws.com/about-richard-full-body-1.jpg"
           alt="Founders of Yusephinum"
           className="founders"
           loading="eager"
+          style={{objectPosition: "top"}}
         />
         <span className="story-text">
         <span className="emph">Richard Peacock</span> is a Seattle based multidisciplinary artist and co-founder of the Queer, BIPOC artist collective, Yusephinum LLC. Over the last ten years to present, he has worked primarily within the musical theater and burlesque spheres of the Seattle community. Currently, Peacock serves as the artistic producer and visionary of Yusephinum LLC. Under this title Peacock has covered a number of roles including writer, composer, story developer, character designer, concept artist, creative consultant, and project manager. His goal in founding Yusephinum LLC  is to create a community of artists whose work challenges the current standardization of character design and representation in fantasy narratives.
         </span>
       </section>
-      {/* <p style={{fontSize: "3rem", textAlign: "center", "margin": "0"}}>.</p> */}
-      <section className="ctn two">
+
+      <section className="ctn two" ref={story1Ref} style={{margin: "6vh 0"}}>
         <img
           src="https://yusephinum-web-assets.s3.us-west-2.amazonaws.com/about-ck-full-body-1.jpg"
           alt="Richard Peacock"
           className="founders"
         />
         <p className="story-text">
-        <span className="emph">CK</span> is a vocalist, arranger, music producer, audio engineer and software engineer who was born and raised in Quezon City, Philippines. He attended university at the Massachusetts Institute of Technology and majored in Electrical Engineering and Computer Science, with concentrations in music and media studies. Taking classes in music theory, composition, game design and interactive music systems (including one taught by a co-creator of Guitar Hero) allowed him to bring together the worlds of engineering and art, and this marriage of technical and creative worlds shapes much of his work today.
+        <span className="emph">CK Ong</span> is a vocalist, arranger, music producer, audio engineer and software engineer who was born and raised in Quezon City, Philippines. He attended university at the Massachusetts Institute of Technology and majored in Electrical Engineering and Computer Science, with concentrations in music and media studies. Taking classes in music theory, composition, game design and interactive music systems (including one taught by a co-creator of Guitar Hero) allowed him to bring together the worlds of engineering and art, and this marriage of technical and creative worlds shapes much of his work today.
         </p>
 
       </section>
-      {/* <p style={{fontSize: "3rem", textAlign: "center", "margin": "0"}}>.</p> */}
-      <section className="ctn three">
+
+      <section className="ctn three" ref={story3Ref}>
         <img
           src="https://yusephinum-web-assets.s3.us-west-2.amazonaws.com/about-adam-full-body-1.jpg"
           alt="CK Ong"
@@ -69,7 +63,6 @@ const About = () => {
         />
         <p className="story-text">
         <span className="emph">Adam Tomás Torres</span>  is the Associate Co-Founder of Yusephinum LLC. He is a Boston based composer, performer, and movement artist whose work strives to communicate interconnectedness. Torres embraces a collaborative practice and is uniquely suited for such work given his array of creative backgrounds in composition, instrumental performance, and dance. Torres works primarily with small chamber ensembles but has a background in composing for electronics, theater, film, and dance. In terms of musical performance, he is a proficient pianist with a primary focus on romantic era, contemporary, and Latin-American genres. 
-
         </p>
       </section>
     </div>
