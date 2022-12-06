@@ -38,8 +38,8 @@
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^3.1.1",
     "autoprefixer": "^10.2.5",
-    "netlify-cli": "^10.18.0",
-    "prettier": "2.8.0",
+    "netlify-cli": "^10.10.0",
+    "prettier": "^2.6.2",
     "sass": "^1.52.2"
   }
 }
