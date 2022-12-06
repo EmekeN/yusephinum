@@ -5,7 +5,7 @@ import "./../styles/index.scss";
 import { Link } from "gatsby";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
-import React, {  useRef } from "react";
+import React, { useState, useRef } from "react";
 
 const IndexPage = () => {
   const storyRef = useRef();
