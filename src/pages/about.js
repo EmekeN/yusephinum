@@ -12,13 +12,47 @@ const About = () => {
   // const founderImgRef = useRef();
   // const richardImgRef = useRef();
   // const ckImgRef = useRef();
+  const containerRef = useRef();
   const story1Ref = useRef();
   const story2Ref = useRef();
   const story3Ref = useRef();
+  const timelineRef = useRef()
 
+  useEffectOnlyOnce(()=> {
+    gsap.registerPlugin(ScrollTrigger)
+    timelineRef.current = gsap.timeline({
+      // scrollTrigger: {
+      //   // trigger:[story2Ref.current, story3Ref.current],
+      //   trigger:[containerRef.current],
+      //   start: "top top",
+      //   end: "+=100",
+      //   scrub: true,
+      //   pin: true,
+      //   // animation
+      //   snap: {
+      //     snapTo: "labels",
+      //     duration: {min: .2, max: 2},
+      //     delay: .2,
+      //     ease: "power1.easeIn"
+      //   }
+      // }
+    })
+
+    timelineRef.current
+      // .addLabel("richard")
+      .from(story1Ref.current, {scale: ".3", opacity: "0", y: "100", duration: .6, ease: "power1.easeIn"}, )
+      // .addLabel("ck")
+      .from(story2Ref.current, {scale: ".3", opacity: "0", y: "100", autoAlpha: 0,
+      //  scrollTrigger: story2Ref.current
+      })
+      // .addLabel("adam")
+      .from(story3Ref.current, {scale: ".3", opacity: "0", y: "100", autoAlpha: 0,
+      // scrollTrigger: story3Ref.current
+    })
+  })
 
   return (
-    <div className="About">
+    <div className="About" ref={containerRef}>
       <Seo
         title={"About Yusephinum"}
         description="Yusephinum LLC is a Queer/POC/AAPI artist collective with a proclivity for video and music production, video game scenario writing, and photography."
@@ -30,7 +64,7 @@ const About = () => {
           </a>
         </section>
       </header>
-      <section className="ctn one" ref={story2Ref}>
+      <section className="ctn one" ref={story1Ref}>
         <img
           src="https://yusephinum-web-assets.s3.us-west-2.amazonaws.com/about-richard-full-body-1.jpg"
           alt="Founders of Yusephinum"
@@ -43,7 +77,7 @@ const About = () => {
         </span>
       </section>
 
-      <section className="ctn two" ref={story1Ref} style={{margin: "6vh 0"}}>
+      <section className="ctn two" ref={story2Ref} style={{margin: "6vh 0"}}>
         <img
           src="https://yusephinum-web-assets.s3.us-west-2.amazonaws.com/about-ck-full-body-1.jpg"
           alt="Richard Peacock"
