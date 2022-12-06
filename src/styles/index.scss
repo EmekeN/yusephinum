@@ -26,6 +26,14 @@
     grid-area: img;
   }
 
+  .AudioPlayer {
+    position: fixed;
+    top: 80vh;
+    right: 0;
+    // opacity: 0;
+    // inset: auto 2rem 2rem auto;
+  }
+
   .link-ctn {
     --link-size: max(2vw, 4rem);
     --logo-size: clamp(80%, 36vw, 28rem);
@@ -39,19 +47,19 @@
     grid-template-rows: 16vh 16vh 36vh 16vh 16vh;
     grid-template-columns: 27vw 48vw 27vw;
     grid-template-areas:
-      ". gallery ."
-      " . gallery . "
+      ". exhibit ."
+      " . exhibit . "
       " about img story  "
-      ". lore . "
-      ". lore .";
+      ". gallery . "
+      ". gallery .";
 
     @media screen and (min-width: 425px) {
       grid-template-rows: 27vh 48vh 27vh;
       grid-template-columns: 16vw 16vw 36vw 16vw 16vw;
       grid-template-areas:
-        ". . gallery . ."
+        ". . exhibit . ."
         ". about img story . "
-        ". . lore . .";
+        ". . gallery . .";
     }
 
     .planet-link {
@@ -64,6 +72,10 @@
       height: var(--link-size);
       z-index: 3;
       opacity: 0;
+      text-align: center;
+      @media screen and (min-width: 800px) {
+        --link-size: 8rem;
+      }
 
       & > a {
         color: white;
@@ -71,8 +83,9 @@
         text-decoration: none;
         z-index: 3;
         font-size: clamp(1.25rem, 5vw, 2rem);
-        line-height: 1;
+        line-height: 1.15;
         letter-spacing: 0.025em;
+        text-shadow: 0.1em 0.1em 0.1em hsl(214, 28%, 10%, 0.5);
         // height: 100%;
         // width: 100%;
       }
@@ -105,8 +118,8 @@
     .gallery {
       grid-area: gallery;
     }
-    .lore {
-      grid-area: lore;
+    .exhibit {
+      grid-area: exhibit;
     }
     .story {
       grid-area: story;
