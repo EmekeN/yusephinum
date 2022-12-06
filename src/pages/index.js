@@ -16,6 +16,8 @@ const IndexPage = () => {
   const storyLinkRef = useRef();
   const hasPlayedIntroRef = useRef(false)
   const timelineRef = useRef()
+  const audioPlayerRef = useRef()
+  const audioPlayerContainerRef= useRef()
 
 
   useEffectOnlyOnce(() =>{
@@ -30,24 +32,46 @@ const IndexPage = () => {
       .from(mySplitText.words, {opacity: 0, duration: 2, scale: 0, autoAlpha: 0, y: "-50%", force3D: true, stagger: 0.02, filter: "blur(.5rem)"})
     .to(mySplitText.chars, {opacity: 0, duration: 1, stagger: ".05",}, 4)
     .to([compassRef.current], {x: 0, opacity: 1, rotate: 360, duration: 1, delay: .15, ease: "Sine.in"},)
-    .to([galleryRef.current,storyLinkRef.current, aboutRef.current, loreRef.current, ], {opacity: 1, stagger: .5, duration: .25});
+    .to([galleryRef.current,storyLinkRef.current, aboutRef.current, loreRef.current, ], {opacity: 1, stagger: .5, duration: .25})
+    // .from([audioPlayerRef.current], {y: "100%", opacity: 0, duration: 1,});
   }, [])
 
-    const handleKillAnimation = (e) => {
-      e.preventDefault()
-      console.log("has played intro: ", hasPlayedIntroRef.current)
-      if(timelineRef.current && !hasPlayedIntroRef.current) {
-        hasPlayedIntroRef.current = true;
-        timelineRef.current.seek(timelineRef.current.endTime() - 2)
-      }
+  const handleKillAnimation = (e) => {
+    e.preventDefault()
+    console.log("has played intro: ", hasPlayedIntroRef.current)
+    if(timelineRef.current && !hasPlayedIntroRef.current) {
+      hasPlayedIntroRef.current = true;
+      timelineRef.current.seek(timelineRef.current.endTime() - 2)
     }
+  }
 
-    const handleKeyPress = (e) => {
-      e.preventDefault()
-      if(e.key === "Enter") {
-        handleKillAnimation()
-      }
+  const handleKeyPress = (e) => {
+    e.preventDefault()
+    if(e.key === "Enter") {
+      handleKillAnimation()
     }
+  }
+
+  const AudioPlayer = () => {
+    const [isAudioPlaying, setIsAudioPlaying] = useState(false)
+    const handleToggleAudio = () => {
+      if (isAudioPlaying) {
+        audioPlayerRef.current.pause()
+      } else {
+        audioPlayerRef.current.play()
+      }
+      setIsAudioPlaying((prev) => !prev)
+    }
+    return (
+      <button className={isAudioPlaying ? "AudioPlayer active" : "AudioPlayer"} onClick={handleToggleAudio} ref={audioPlayerContainerRef}>
+      <img src="https://yusephinum-web-assets.s3.us-west-2.amazonaws.com/white-microphone-active.svg" alt="audio player"/>
+        <audio className="player" ref={audioPlayerRef}>
+          <source src="https://yusephinum-web-assets.s3.us-west-2.amazonaws.com/Yusephinum-5.mp3" />
+          Sorry you can't hear this
+        </audio>
+      </button>
+    );
+  };
 
   return (
     <div className="Home" onClick={handleKillAnimation} onKeyPress={handleKeyPress}>
@@ -79,6 +103,7 @@ const IndexPage = () => {
             <Link to="/lore">Lore</Link>
           </div> */}
           <img src={CompassLogo} ref={compassRef} alt="Yusephinum" className="center-logo" />
+          <AudioPlayer />
         </div>
       </section>
     </div>
@@ -87,14 +112,3 @@ const IndexPage = () => {
 export default IndexPage;
 
 
-
-const AudioPlayer = (url) => {
-  return (
-    <div className="AudioPlayer" style={{ opacity: "0" }}>
-      <audio controls width className="player">
-        <source src="https://yusephinum-web-assets.s3.us-west-2.amazonaws.com/Yusephinum-5.mp3" />
-        Sorry you can't hear this
-      </audio>
-    </div>
-  );
-};
