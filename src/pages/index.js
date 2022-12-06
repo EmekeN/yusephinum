@@ -37,7 +37,7 @@ const IndexPage = () => {
   }, [])
 
   const handleKillAnimation = (e) => {
-    e.preventDefault()
+    // e.preventDefault()
     console.log("has played intro: ", hasPlayedIntroRef.current)
     if(timelineRef.current && !hasPlayedIntroRef.current) {
       hasPlayedIntroRef.current = true;
@@ -46,7 +46,7 @@ const IndexPage = () => {
   }
 
   const handleKeyPress = (e) => {
-    e.preventDefault()
+    // e.preventDefault()
     if(e.key === "Enter") {
       handleKillAnimation()
     }
@@ -89,15 +89,14 @@ const IndexPage = () => {
           <div ref={galleryRef} className="planet-link gallery">
             <a
               href="http://www.greatjonesgallery.com/"
-              target="_blank"
-              rel="noreferrer noopener"
+              // target="_blank"
               style={{ textAlign: "center" }}
             >
-              Gallery
+              Current Exhibit
             </a>
           </div>
           <div ref={storyLinkRef} className="planet-link story">
-            <a href="https://yusephinum.myshopify.com/" target="_blank" rel="noopener noreferrer">Store</a>
+            <a href="https://yusephinum.myshopify.com/" target="_blank">Store</a>
           </div>
           {/* <div ref={loreRef} className="planet-link lore">
             <Link to="/lore">Lore</Link>

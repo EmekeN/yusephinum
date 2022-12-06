@@ -14,13 +14,9 @@
     .founders {
       object-fit: cover;
       object-position: bottom;
-      width: min(100%, 32rem);
+      width: min(100%, 20rem);
       margin: auto;
       border-radius: 30px 30px 30px 20px / 32px 32px 0px 0px;
-      @media screen and (min-width: 800px) {
-        height: auto;
-        width: 20rem;
-      }
     }
      .emph{
         font-weight: 700;

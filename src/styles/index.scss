@@ -37,7 +37,7 @@
       content: "";
       position: absolute;
       border-radius: 50%;
-      border: 2px solid #f9f9f9;
+      border: 1px solid #f9f9f9;
       width: var(--icon-size);
       height: var(--icon-size);
       inset: -17% auto auto -19%;
@@ -48,7 +48,7 @@
       position: absolute;
       inset: -16% 45% auto auto;
       height: calc(var(--icon-size) - 0px);
-      width: 2px;
+      width: 1px;
       background-color: #f9f9f9;
       transform: rotate(45deg);
     }
