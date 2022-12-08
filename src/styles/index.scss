@@ -18,7 +18,7 @@
     position: fixed;
     opacity: 1;
     // z-index: 1;
-    inset: auto 8% 8vh auto;
+    inset: auto 4% 8vh auto;
     opacity: .65;
 
     &.active {
@@ -81,7 +81,8 @@
   }
 
   .link-ctn {
-    --link-size: max(2vw, 4rem);
+    // --link-size: max(1vh, 5rem);
+    --link-size: 5rem;
     --logo-size: clamp(80%, 36vw, 28rem);
     --logo-size: max(100%, 28rem);
     display: grid;
@@ -106,6 +107,7 @@
         ". . gallery . ."
         ". about img story . "
         ". . lore . .";
+      --link-size: 15vh;
     }
 
     .planet-link {
@@ -114,7 +116,7 @@
       place-content: center;
       place-items: center;
       place-self: center;
-      width: var(--link-size);
+      // width: var(--link-size);
       height: var(--link-size);
       z-index: 3;
       opacity: 0;
@@ -122,7 +124,9 @@
       & > a {
         color: white;
         font-weight: 700;
+        text-align: center;
         text-decoration: none;
+        width: var(--link-size);
         z-index: 3;
         font-size: clamp(1.25rem, 5vw, 2rem);
         line-height: 1;
@@ -148,7 +152,7 @@
       &:active {
         &::after {
           background-image: url("https://yusephinum-web-assets.s3.us-west-2.amazonaws.com/sigil-white.svg");
-          transform: scale(1.75);
+          transform: scale(1.25);
         }
       }
     }

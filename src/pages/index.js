@@ -77,7 +77,7 @@ const IndexPage = () => {
     <div className="Home" onClick={handleKillAnimation} onKeyPress={handleKeyPress}>
       <Seo
         title={"Welcome to Yusephinum"}
-        description="An episodic world building experience told through interdisciplinary installations that explore the complexity of existence and finding a place to call home."
+        description="Enter the Yusephinum. An episodic world building experience told through interdisciplinary installations that explore the complexity of existence and finding a place to call home."
       />
       <section className="hero-story">
         <h1 ref={storyRef} className="title visually-hidden" style={{zIndex: 0}}>Welcome to a strange new dimension.</h1>

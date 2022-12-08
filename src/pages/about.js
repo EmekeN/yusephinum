@@ -72,7 +72,7 @@ const About = () => {
           loading="eager"
         />
         <span className="story-text">
-        <span className="emph">Richard Peacock</span>  is a Seattle based multidisciplinary artist and co-founder of the Queer, BIPOC artist collective, Yusephinum LLC. He has worked professionally within the musical theater and burlesque spheres of the Seattle community for over a decade. As the artistic producer and visionary of Yusephinum LLC, Peacock has take on a number of roles including writer, composer, story developer, character designer, concept artist, creative consultant, and project manager. His goal in founding Yusephinum LLC is to create a community of artists whose work challenges the current paradigm of character design and representation in video games.
+        <span className="emph">Richard Peacock</span>  is a Seattle based multidisciplinary artist and co-founder of the Queer, BIPOC artist collective, Yusephinum LLC. He has worked professionally within the musical theater and burlesque spheres of the Seattle community for over a decade. As the artistic producer and visionary of Yusephinum LLC, Peacock has taken on a number of roles including writer, composer, story developer, character designer, concept artist, creative consultant, and project manager. His goal in founding Yusephinum LLC is to create a community of artists whose work challenges the current paradigm of character design and representation in video games.
         </span>
       </section>
 
@@ -95,8 +95,7 @@ const About = () => {
           className="founders"
         />
         <p className="story-text">
-        <span className="emph">Adam Tomás Torres</span> is the Associate Co-Founder of Yusephinum LLC. He is a Boston based composer, performer, and movement artist whose work strives to communicate interconnectedness. Torres embraces a collaborative practice and is uniquely suited for such work given his array of creative backgrounds in composition, instrumental performance, and dance. Torres works primarily with small chamber ensembles but has a background in composing for electronics, theater, film, and dance. In terms of musical performance, he is a proficient pianist with a primary focus on romantic era, contemporary, and Latin-American genres. 
-
+        <span className="emph">Adam Tomás Torres</span> is the Associate Co-Founder of Yusephinum LLC. He is a Boston based composer, performer, and movement artist whose work strives to communicate interconnectedness. Torres embraces a collaborative practice and is uniquely suited for such work given his array of creative backgrounds in composition, instrumental performance, and dance. Torres works primarily with small chamber ensembles but has a background in composing for electronics, theater, film, and dance. In terms of musical performance, he is a proficient pianist with a primary focus on romantic era, contemporary, and Latin-American genres. ß
         </p>
       </section>
     </div>
